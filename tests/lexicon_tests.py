@@ -1,4 +1,4 @@
-import nose
+from nose import *
 from nose.tools import *
 from donkus import lexicon
 import importlib
@@ -22,4 +22,3 @@ def test_directions():
 
 
 
-nose.main()
