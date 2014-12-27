@@ -1,3 +1,4 @@
+import nose
 from nose.tools import *
 from donkus import lexicon
 import importlib
@@ -16,8 +17,9 @@ def test_directions():
     assert_equal(result, [('direction', 'north'),
                           ('direction', 'south'),
                           ('direction', 'east')])
-    return result
 
 
-r=test_directions()
 
+
+
+nose.main()
