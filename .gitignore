@@ -6,6 +6,9 @@
 *.user
 *.sln.docstates
 
+#pycache
+__pycache__/
+
 
 # Build results
 [Dd]ebug/
