@@ -1,6 +1,4 @@
-import sys
-import types
-import re
+import sys, types, re
 
 current_module = sys.modules[__name__]
 
@@ -25,7 +23,6 @@ def scan(str):
         
     return results
 
-
 def probe_for(word):
     #harvest all module-level lists
     word_lists = {key:value for (key,value) in  [ (a,current_module.__dict__.get(a)) for a in dir(current_module) if isinstance(current_module.__dict__.get(a), type([]))]}
@@ -33,7 +30,7 @@ def probe_for(word):
         found = get_first(filter_by_value(list, word))
         if found:
             key = re.sub('s$', '', key) #depluralize - todo: use an inflection
-            return (key, word)
+            return (key, found)
 
 def convert_number(s):
     try:
@@ -43,7 +40,7 @@ def convert_number(s):
 
 def filter_by_value(seq, value):
    for s in seq:
-       if s == value: 
+       if s.lower() == value.lower(): 
            yield s
 
 def get_first(iterable, default=None):

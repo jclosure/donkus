@@ -50,6 +50,8 @@ def test_errors():
     assert_equal(result, [('noun', 'bear'),
                           ('error', 'IAS'),
                           ('noun', 'princess')])
+def test_capitalization():
+    assert_equal(lexicon.scan("Bear"), [('noun', 'bear')])
 
 #for executing tests in repl
 run()
