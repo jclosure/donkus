@@ -3,6 +3,7 @@ from nose.tools import *
 from donkus import lexicon
 import importlib
 
+
 importlib.reload(lexicon)
 
 def setup():
@@ -19,6 +20,16 @@ def test_directions():
                           ('direction', 'east')])
 
 
+    
+
+def test_verbs():
+    assert_equal(lexicon.scan("go"), [('verb', 'go')])
+    result = lexicon.scan("go kill eat")
+    assert_equal(result, [('verb', 'go')
+                          ('verb', 'kill')
+                          ('verb', 'eat')])
 
 
 
+#for executing tests in repl
+run()
