@@ -6,14 +6,23 @@ current_module = sys.modules[__name__]
 
 directions = ["north","south","east","west","up","down"]
 verbs = ["go", "kill", "eat"]
+stops = ["the", "in", "of"]
+nouns = "bear princess".split()
 
 def scan(str):
     input = str.split()
     results = []
     for word in input:
-        tuple = probe_for(word)
-        results.append(tuple)
-
+        num = convert_number(word)
+        if num:
+            results.append(('number', num))
+        else:
+            tuple = probe_for(word)
+            if tuple:
+                results.append(tuple)
+            else:
+                results.append(('error', word))
+        
     return results
 
 
