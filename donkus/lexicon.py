@@ -2,7 +2,7 @@ import sys, types, re
 
 current_module = sys.modules[__name__]
 
-directions = ["north","south","east","west","up","down"]
+directions = ["north", "south", "east", "west", "up", "down"]
 verbs = ["go", "kill", "eat"]
 stops = ["the", "in", "of"]
 nouns = "bear princess".split()
@@ -15,9 +15,9 @@ def scan(str):
         if num:
             results.append(('number', num))
         else:
-            tuple = probe_for(word)
-            if tuple:
-                results.append(tuple)
+            word_tuple = probe_for(word)
+            if word_tuple:
+                results.append(word_tuple)
             else:
                 results.append(('error', word))
         
