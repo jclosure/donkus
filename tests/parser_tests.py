@@ -71,9 +71,8 @@ class Test_parser_tests(unittest.TestCase):
                                             ('verb', 'ate'),
                                             ('noun', 'princess'))
 
-        self.assertEqual(expected_sentence.subject, parsed_sentence.subject)
-        self.assertEqual(expected_sentence.verb, parsed_sentence.verb)
-        self.assertEqual(expected_sentence.obj, parsed_sentence.obj)
+        # the sentences' dictionaries are equal
+        self.assertDictEqual(expected_sentence.__dict__, parsed_sentence.__dict__)
 
     def test_parse_error(self):
         word_list = [('stop', 'the'),
