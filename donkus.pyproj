@@ -5,9 +5,10 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>68356726-6e83-4010-b4ca-c2f5d40527fd</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>tests/lexicon_tests.py</StartupFile>
+    <StartupFile>tests/parser_tests.py</StartupFile>
     <SearchPath>.</SearchPath>
-    <WorkingDirectory>.</WorkingDirectory>
+    <WorkingDirectory>
+    </WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>donkus</Name>
     <RootNamespace>donkus</RootNamespace>

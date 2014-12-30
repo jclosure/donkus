@@ -19,12 +19,24 @@ class Sentence(object):
 ### MODULE-LEVEL FUNCTIONS
 
 def parse_sentence(word_list):
-    subj = parse_subject(word_list)
-    verb = parse_verb(word_list)
-    obj = parse_object(word_list)
+    try:
+        subj = parse_subject(word_list)
+        verb = parse_verb(word_list)
+        obj = parse_object(word_list)
 
-    sentence = Sentence(subj, verb, obj)
-    return sentence
+        sentence = Sentence(subj, verb, obj)
+        return sentence
+    except:
+        print("Expecting a sentence of the form: Subject -> Verb -> Object")
+
+def parse_number(word_list):
+    skip(word_list, 'stop')
+    next_word_type = peek(word_list)
+
+    if next_word_type == 'number':
+        return match(word_list, 'number')
+    else:
+        raise ParserError("Expected a number next.")
 
 def parse_subject(word_list):
     skip(word_list, 'stop')

@@ -59,6 +59,23 @@ class Test_parser_tests(unittest.TestCase):
 
         self.assertEqual(('noun', 'bear'), result)
 
+    def test_parse_number(self):
+        word_list = [('number', 10),
+                     ('noun', 'princesses'),
+                     ('verb', 'ate'),
+                     ('number', 11),
+                     ('noun', 'crumbcakes')]
+        result = parser.parse_number(word_list)
+
+        self.assertEqual(('number', 10), result)
+
+        parser.skip(word_list, 'noun')
+        parser.skip(word_list, 'verb')
+
+        result = parser.parse_number(word_list)
+
+        self.assertEqual(('number', 11), result)
+
     def test_parse_sentence(self):
         word_list = [('stop', 'the'),
                      ('noun', 'bear'),
@@ -80,8 +97,16 @@ class Test_parser_tests(unittest.TestCase):
 
         self.assertRaises(parser.ParserError, parser.parse_verb, (word_list))
 
+    def test_badly_formed_sentence_does_not_blow_up(self):
+        word_list = [('stop', 'the'),
+                     ('noun', 'bear'),
+                     ('noun', 'princess'),
+                     ('stop', 'the'),
+                     ('verb', 'ran')]
 
+        result = parser.parse_sentence(word_list)
 
+        self.assertEqual(None, result)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
