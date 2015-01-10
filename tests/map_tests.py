@@ -1,5 +1,5 @@
 from nose.tools import *
-from donkus.room import Room
+from donkus.map import Room
 
 def setup():
 	print("SETUP!")
@@ -37,3 +37,5 @@ def test_map():
     assert_equal(start.go('down').go('up'), start)
 
 
+# Execute the tests above
+run()
