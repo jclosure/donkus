@@ -13,7 +13,7 @@ def home():
     return render_template(
         'index.html',
         title="Story Time",
-        message="Come close to the fire and look into my eyes.",
+        message="The bear chased the princess.  The princess ate the bear.",
         year=datetime.now().year
     )
 

@@ -4,22 +4,29 @@
 
 <div class="jumbotron">
     <h1>{{ title }}.</h1>
-    <h2>{{ message }}</h2>
+    <h2><span class="glyphicon">Come <span class="glyphicon glyphicon-arrow-right"></span> to the <span class="glyphicon glyphicon-fire"></span> and look into my <span class="glyphicon glyphicon-eye-open"></span><span class="glyphicon glyphicon-eye-open"></span></span></h2>
 </div>
-
 
 <style>
     body, .stage {
         background: #042029;
     }
+    .tablet {
+        padding: 10px 10px 10px 10px;
+        background-color: whitesmoke;
+    }
 </style>
 
+<div class="row">
+    <div class="col-md-12">
+        <h3><span>{{ message }}</span></h3>
+    </div>
+</div>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         
         <div id="graph" />
-
         <script type="text/javascript">
 
             var w = 900,
@@ -182,12 +189,26 @@
         </script>
 
     </div>
-    <div class="col-md-4">
-        
+</div>
+<div class="row tablet">
+    <div class="col-md-6">
+        <h3>Deep Structure</h3>
+        <blockquote>
+            <p>The sentences "Pat loves Chris" and "Chris is loved by Pat" mean roughly the same thing and use similar words. Some linguists, in particular Noam Chomsky, have tried to account for this similarity by positing that these two sentences are distinct surface forms that derive from a common deep structure.</p>
+            <footer>Wikipedia: http://en.wikipedia.org/wiki/Deep_structure </footer>
+        </blockquote>
+
     </div>
-    <div class="col-md-4">
-       
+
+    <div class="col-md-6">
+        <h3>Chord Progression</h3>
+        <blockquote>
+            <p>A chord progression (or harmonic progression) is a series of musical chords, or chord changes that "aims for a definite goal" of establishing (or contradicting) a tonality founded on a key, root or tonic chord and that is based upon a succession of root relationships. Chords and chord theory are generally known as harmony.</p>
+            <footer>Wikipedia: http://en.wikipedia.org/wiki/Chord_progression </footer>
+        </blockquote>
+
     </div>
+
 </div>
 
 
