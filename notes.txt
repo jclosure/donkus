@@ -1,0 +1,13 @@
+
+#Information on GoogleScraper
+	https://pypi.python.org/pypi/GoogleScraper/0.1.16
+	http://vimeo.com/112801073
+	http://scrapeulous.com/googlescraper-market-analysis.html
+
+
+# How to get around corruption with simplejson's compiled _speedups.pyd
+	download tarball from https://pypi.python.org/pypi/simplejson/
+	run: python setup.py install
+	go into C:\Anaconda3\Lib\site-packages\simplejson-3.6.5jh-py3.4-win-amd64.egg\simplejson and rename 
+		_speedups.pyd to _speedups-MOVED.pyd
+	this will use the non-spedup version of json

@@ -30,6 +30,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="api\runserver.py" />
+    <Compile Include="api\settings.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="donkus\lexicon.py" />
     <Compile Include="donkus\map.py" />
     <Compile Include="donkus\parser.py" />
@@ -46,6 +50,7 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="donkus\" />
+    <Folder Include="api\" />
     <Folder Include="tests\" />
     <Folder Include="web\" />
     <Folder Include="web\static\" />
