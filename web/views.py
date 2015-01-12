@@ -12,8 +12,8 @@ def home():
     """Renders the home page."""
     return render_template(
         'index.html',
-        title='Inconceivable!!',
-        message="Time to get donked with us",
+        title="Story Time",
+        message="Come close to the fire and look into my eyes.",
         year=datetime.now().year
     )
 

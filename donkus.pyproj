@@ -51,6 +51,7 @@
     <Folder Include="bin\" />
     <Folder Include="donkus\" />
     <Folder Include="api\" />
+    <Folder Include="lib\" />
     <Folder Include="tests\" />
     <Folder Include="web\" />
     <Folder Include="web\static\" />
@@ -64,7 +65,9 @@
     <Content Include=".gitignore" />
     <Content Include="bin\donkus.bat" />
     <Content Include="bin\donkus.sh" />
+    <Content Include="bin\search_scraper.bat" />
     <Content Include="LICENSE" />
+    <Content Include="notes.txt" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="web.config" />
@@ -91,8 +94,6 @@
     <Content Include="web\static\scripts\modernizr-2.6.2.js" />
     <Content Include="web\static\scripts\respond.js" />
     <Content Include="web\static\scripts\respond.min.js" />
-    <Content Include="web\templates\about.html" />
-    <Content Include="web\templates\contact.html" />
     <Content Include="web\templates\index.html" />
     <Content Include="web\templates\layout.html" />
   </ItemGroup>

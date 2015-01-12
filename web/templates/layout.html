@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 </head>
 
 <body>
@@ -33,9 +34,13 @@
     <div class="container body-content">
         <br />
         {% block content %}{% endblock %}
-        <hr />
+        
+       
         <footer>
-            <p>&copy; {{ year }} - Company Inc</p>
+            <div class="navbar-fixed-bottom">
+                <hr />
+                <p>&copy; {{ year }} - Company Inc</p>
+            </div>
         </footer>
     </div>
 
