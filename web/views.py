@@ -12,7 +12,7 @@ def home():
     """Renders the home page."""
     return render_template(
         'index.html',
-        title="New Story Time",
+        title="Donkus",
         message="The bear chased the princess.  The princess ate the bear.",
         year=datetime.now().year
     )
