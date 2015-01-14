@@ -1,3 +1,4 @@
+from nose import *
 from nose.tools import *
 from donkus.map import Room
 

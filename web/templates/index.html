@@ -11,20 +11,25 @@
         padding: 10px 10px 10px 10px;
         background-color: whitesmoke;
     }
+    #forward-pass-data {
+        display: none;
+    }
 </style>
 
+<div id="forward-pass-data">{{ data }}</div>
+<script id="forward-pass-js" type="text/javascript">
+    var el = document.getElementById("forward-pass-data");
+    var data = JSON.parse(el.innerHTML);
+</script>
+
 <div class="jumbotron">
-    <h1>{{ title }} <img class="shrinkToFit decoded" alt="http://www.tdvision.com/AILEENN/Icons/NeuralNetwork.PNG" src="http://www.tdvision.com/AILEENN/Icons/NeuralNetwork.PNG" /></h1>
+    <h1>{{ title }}</h1>
+    <h2><img class="shrinkToFit decoded" alt="http://www.tdvision.com/AILEENN/Icons/NeuralNetwork.PNG" src="http://www.tdvision.com/AILEENN/Icons/NeuralNetwork.PNG" width="180" /> {{ message }}</h2>
+
 
     <div class="row">
         <div class="col-md-12">
-            <h3><span>{{ message }}</span></h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-
+            <h3>Map</h3>
             <div id="graph"></div>
             <script type="text/javascript">
 
@@ -56,22 +61,47 @@
                     "yellowgreen": "#738A05"
                 }
 
-                var nodes = [
-                                { "name": "Bear" },
-                                { "name": "Eat" },
-                                { "name": "Princess" },
-                                { "name": "Kill" },
-                                { "name": "Bear" }
-                ]
+                // example nodes:
+                //var nodes = [
+                //                { "name": "Bear" },
+                //                { "name": "Eat" },
+                //                { "name": "Princess" },
+                //                { "name": "Kill" },
+                //                { "name": "Bear" }
+                //]
 
-                var links = [
-                                { source: nodes[0], target: nodes[1] },
-                                { source: nodes[1], target: nodes[2] },
-                                { source: nodes[0], target: nodes[3] },
-                                { source: nodes[4], target: nodes[2] },
-                                { source: nodes[2], target: nodes[3] }
-                ]
+                var nodes = data;
 
+                // example links:
+                //var links = [
+                //                { source: nodes[0], target: nodes[1] },
+                //                { source: nodes[1], target: nodes[2] },
+                //                { source: nodes[0], target: nodes[3] },
+                //                { source: nodes[4], target: nodes[2] },
+                //                { source: nodes[2], target: nodes[3] }
+                //]
+
+                //extend underscore with flatMap function by composing it 
+                _.flatMap = _.compose(_.flatten, _.map);
+
+                var util = {
+                    rooms: nodes,
+                    lookup: function (name) {
+                        return _.filter(util.rooms, function (room) {
+                            return room.name == name;
+                        })[0];
+                    },
+                    generate_links: function () {
+                        var links = _.flatMap(util.rooms, function (room) {
+                            return _.map(room.paths, function (path) {
+                                return { source: util.lookup(path[0]), target: util.lookup(path[1]) };
+                            });
+                        });
+                        return links;
+                    }
+                };
+
+                var links = util.generate_links();
 
 
                 var vis = d3.select("#graph")
