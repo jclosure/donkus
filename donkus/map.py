@@ -1,3 +1,6 @@
+     
+
+
 
 class Room(object):
     """represents a room in the game"""
@@ -13,6 +16,8 @@ class Room(object):
     def add_paths(self, paths):
         self.paths.update(paths)
 
+
+   
 
 # API
 def generate():

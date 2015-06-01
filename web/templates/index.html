@@ -16,10 +16,9 @@
     }
 </style>
 
-<div id="forward-pass-data">{{ data }}</div>
+
 <script id="forward-pass-js" type="text/javascript">
-    var el = document.getElementById("forward-pass-data");
-    var data = JSON.parse(el.innerHTML);
+    var data = JSON.parse('{{ data|tojson|safe }}');
 </script>
 
 <div class="jumbotron">

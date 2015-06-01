@@ -43,6 +43,7 @@ def filter_by_value(seq, value):
        if s.lower() == value.lower(): 
            yield s #generator
 
+# todo - refactor
 def get_first(iterable, default=None):
     if iterable:
         for item in iterable:
