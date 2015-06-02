@@ -11,9 +11,6 @@ from donkus import map
 from donkus import dictable
 
 
-
-
-
 @app.route('/')
 @app.route('/home')
 def home():
