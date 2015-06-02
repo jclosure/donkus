@@ -13,8 +13,19 @@ print(gutenberg.fileids())
 
 from nltk import FreqDist
 
-fd = FreqDist(gutenberg.words('austen-persuasion.txt'))
+words = gutenberg.words('austen-persuasion.txt')
 
+## compute total words in corpus
+total_words = len(words)
+
+## compute total unique words in corpus
+total_uniqu_words = len(set(words))
+
+
+fd = FreqDist(words)
+
+## the frequency distribution also holds this kind of information
+len(fd)
 
 
 #first 10
